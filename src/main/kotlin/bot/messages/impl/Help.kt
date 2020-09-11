@@ -13,7 +13,7 @@ class Help : CommandHandler {
         val commands = core.getCommands()
         val builder = StringBuilder("```JavaScript\n")
 
-        builder.append("CoinBot command usage: J <command> [<args>]\n\n")
+        builder.append("JohnBot command usage: J <command> [<args>]\n\n")
 
         val maxCommandLength = commands.keys.maxByOrNull { it.length }.orEmpty().length + 2
 

@@ -18,13 +18,13 @@ class Core {
     val channels = loadClasses<GenericChannel>("bot.channels.impl", Channel::class, this)
     private val connectors: Map<String, GenericConnector> =
         loadClasses<GenericConnector>("bot.connectors.impl", Connector::class).associateBy {
-        it::class.java.getAnnotation(Connector::class.java).name
-    }.toMap()
+            it::class.java.getAnnotation(Connector::class.java).name
+        }.toMap()
     private val applications: List<Service> = loadClasses("bot.app", Application::class)
     private val commands: Map<String, CommandHandler> =
         loadClasses<CommandHandler>("bot.messages.impl", Message::class).associateBy {
-        it::class.java.getAnnotation(Message::class.java).value
-    }.toMap()
+            it::class.java.getAnnotation(Message::class.java).value
+        }.toMap()
 
     init {
         applications.forEach { it.start(this) }
@@ -50,7 +50,7 @@ class Core {
             )
         } else {
             channel.send(
-                "Sorry {user:${user.id}}, '${header}' is not a CoinBot command. See 'J --help'.",
+                "Sorry {user:${user.id}}, '${header}' is not a JohnBot command. See 'J --help'.",
                 source
             )
         }
